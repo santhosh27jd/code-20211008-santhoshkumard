@@ -1,0 +1,4 @@
+[{"id":1,"name":"Audi","description":"Sedan model, 2000 horse power 399 newton meter of torque","location":"Audi.jpg","price":"$35000"},
+    {"id":2,"name":"BMW","description":"Hyper model, 2000 horse power 399 newton meter of torque","location":"Cadallic.jpg","price":"$57888"},
+    {"id":3,"name":"Jaguar","description":"XUV model, 2000 horse power 399 newton meter of torque","location":"Jaguar.jpg","price":"$78999"},
+    {"id":4,"name":"Porche","description":"Sport model, 2000 horse power 399 newton meter of torque","location":"Porche.jpg","price":"$100789"}]
