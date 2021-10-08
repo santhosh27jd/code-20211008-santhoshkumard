@@ -2,14 +2,13 @@ const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const cors = require("cors");
 const app = express();
-const PORT = 5050;
-//const userData = require("./MOCKDATA.json")
-const productData = require("./CATALOG.json")
+const PORT = 5050; // listening port
+const productData = require("./CATALOG.json"); // Json data for product catalog
 const graphql = require("graphql");
-const {GraphQLObjectType, GraphQLSchema, GraphQLInt, GraphQLString, GraphQLList} = graphql
+const {GraphQLObjectType, GraphQLSchema, GraphQLInt, GraphQLString, GraphQLList} = graphql // Initializing GraphQl
 
 
-
+// Initializing product type
 const ProductType = new GraphQLObjectType({
     name:"Product",
     fields:() => ({
@@ -21,6 +20,7 @@ const ProductType = new GraphQLObjectType({
     })
 })
 
+// Getting product
 const RootQuery = new GraphQLObjectType({
     name:"RootQueryType",
     fields:{
@@ -34,6 +34,7 @@ const RootQuery = new GraphQLObjectType({
     }
 })
 
+// Creating product
 const Mutation = new GraphQLObjectType({
     name:"Mutation",
     fields:{
@@ -53,13 +54,16 @@ const Mutation = new GraphQLObjectType({
     }
 })
 
+// Configuring server
 const schema = new graphql.GraphQLSchema({query: RootQuery, mutation: Mutation})
 
+// cors for allow origin
 app.use(cors())
 app.use('/graphql', graphqlHTTP({
     schema,
     graphiql: true
 }))
+//Starting server with listening port
 app.listen(PORT,() => {
     console.log("Server is running");
 })
